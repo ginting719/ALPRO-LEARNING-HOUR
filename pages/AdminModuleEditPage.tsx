@@ -207,15 +207,15 @@ const AdminModuleEditPage = () => {
             <div className="space-y-4">
               <div>
                 <label htmlFor="title" className="block text-sm font-medium text-gray-300">Title</label>
-                <input type="text" name="title" id="title" required value={module.title || ''} onChange={handleModuleChange} className="mt-1 block w-full bg-neutral-700 border border-neutral-600 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-primary focus:border-primary" />
+                <input type="text" name="title" id="title" required value={module.title || ''} onChange={handleModuleChange} className="mt-1 block w-full bg-gray-700 border border-neutral-600 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-primary focus:border-primary" />
               </div>
               <div>
                 <label htmlFor="description" className="block text-sm font-medium text-gray-300">Description</label>
-                <textarea name="description" id="description" rows={4} value={module.description || ''} onChange={handleModuleChange} className="mt-1 block w-full bg-neutral-700 border border-neutral-600 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+                <textarea name="description" id="description" rows={4} value={module.description || ''} onChange={handleModuleChange} className="mt-1 block w-full bg-gray-700 border border-neutral-600 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-primary focus:border-primary"></textarea>
               </div>
               <div>
                 <label htmlFor="youtube_video_url" className="block text-sm font-medium text-gray-300">YouTube Video URL</label>
-                <input type="text" name="youtube_video_url" id="youtube_video_url" required value={module.youtube_video_url || ''} onChange={handleModuleChange} placeholder="e.g., https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="mt-1 block w-full bg-neutral-700 border border-neutral-600 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-primary focus:border-primary" />
+                <input type="text" name="youtube_video_url" id="youtube_video_url" required value={module.youtube_video_url || ''} onChange={handleModuleChange} placeholder="e.g., https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="mt-1 block w-full bg-gray-700 border border-neutral-600 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-primary focus:border-primary" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-300">Video Preview</label>
@@ -242,11 +242,11 @@ const AdminModuleEditPage = () => {
                         </button>
                         <div>
                             <label htmlFor={`q-text-${qIndex}`} className="block text-sm font-medium text-gray-300">Question {qIndex + 1}</label>
-                            <input type="text" name="question_text" id={`q-text-${qIndex}`} value={q.question_text || ''} onChange={(e) => handleQuestionChange(qIndex, e)} required className="mt-1 block w-full bg-neutral-600 border border-neutral-500 rounded-md py-2 px-3 text-white" />
+                            <input type="text" name="question_text" id={`q-text-${qIndex}`} value={q.question_text || ''} onChange={(e) => handleQuestionChange(qIndex, e)} required className="mt-1 block w-full bg-gray-600 border border-neutral-500 rounded-md py-2 px-3 text-white" />
                         </div>
                         <div>
                             <label htmlFor={`q-points-${qIndex}`} className="block text-sm font-medium text-gray-300">Points</label>
-                            <input type="number" name="points" id={`q-points-${qIndex}`} value={q.points || 10} onChange={(e) => handleQuestionChange(qIndex, e)} required className="mt-1 block w-40 bg-neutral-600 border border-neutral-500 rounded-md py-2 px-3 text-white" />
+                            <input type="number" name="points" id={`q-points-${qIndex}`} value={q.points || 10} onChange={(e) => handleQuestionChange(qIndex, e)} required className="mt-1 block w-40 bg-gray-600 border border-neutral-500 rounded-md py-2 px-3 text-white" />
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-300">Options</label>
@@ -254,7 +254,7 @@ const AdminModuleEditPage = () => {
                                 {q.options?.map((opt, oIndex) => (
                                     <div key={oIndex} className="flex items-center gap-2">
                                         <input type="radio" name={`correct-opt-${qIndex}`} checked={q.correct_option_index === oIndex} onChange={() => handleCorrectOptionChange(qIndex, oIndex)} className="form-radio h-5 w-5 text-primary bg-neutral-600 border-neutral-500 focus:ring-primary" />
-                                        <input type="text" value={opt.text} onChange={(e) => handleOptionChange(qIndex, oIndex, e)} required className="block w-full bg-neutral-600 border border-neutral-500 rounded-md py-2 px-3 text-white" />
+                                        <input type="text" value={opt.text} onChange={(e) => handleOptionChange(qIndex, oIndex, e)} required className="block w-full bg-gray-600 border border-neutral-500 rounded-md py-2 px-3 text-white" />
                                         <button type="button" onClick={() => removeOption(qIndex, oIndex)} className="text-gray-400 hover:text-error" aria-label="Remove Option">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                                         </button>
