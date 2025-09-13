@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#18181b" />
+    <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/ginting719/Audio/LOGO-01.png">
+
+    <title>Alpro Learning Hour</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#4F46E5',
+              secondary: '#EC4899',
+              accent: '#10B981',
+              neutral: '#1F2937',
+              'base-100': '#F9FAFB',
+              info: '#3B82F6',
+              success: '#16A34A',
+              warning: '#F59E0B',
+              error: '#EF4444',
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+              'background-pan': 'backgroundPan 15s linear infinite',
+              'firework-boom': 'firework 1.2s ease-out forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              backgroundPan: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+                '100%': { backgroundPosition: '0% 50%' },
+              },
+              firework: {
+                '0%': { transform: 'scale(0.5)', opacity: 1 },
+                '100%': { transform: 'scale(2.5)', opacity: 0 }
+              }
+            }
+          }
+        }
+      }
+    </script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.8.2",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.57.2"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
